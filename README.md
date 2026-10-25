@@ -16,3 +16,7 @@
 언어 선택은 브라우저의 `localStorage`에 저장됩니다. 새 가이드는 `guides/`에 Markdown 파일로 추가한 뒤 `guide.html`에 문서 링크를 연결하면 됩니다.
 
 UI 미리보기는 제품 사용 흐름을 소개하기 위해 HTML/CSS로 만든 예시입니다.
+
+## Deployment
+
+`.github/workflows/deploy.yml` publishes the website root to the `gh-pages` branch whenever `main` changes. GitHub Pages serves the site from the root of that branch. The repository's Pages source should be set to `Deploy from a branch`, branch `gh-pages`, folder `/`.
