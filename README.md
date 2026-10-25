@@ -13,7 +13,7 @@
 
 가이드 문서는 `fetch`로 읽기 때문에 저장소 루트에서 정적 파일 서버를 실행하세요. 예: `python3 -m http.server 8000` 후 `http://localhost:8000`을 엽니다.
 
-언어 선택은 브라우저의 `localStorage`에 저장됩니다. 새 가이드는 `guides/`에 Markdown 파일로 추가한 뒤 `guide.html`에 문서 링크를 연결하면 됩니다.
+첫 방문에는 브라우저 언어가 한국어이면 한국어, 그 외에는 영어로 표시합니다. 사용자가 직접 선택한 언어는 브라우저의 `localStorage`에 저장하고 다음 방문부터 우선 적용합니다. 새 가이드는 `guides/`에 Markdown 파일로 추가한 뒤 `guide.html`에 문서 링크를 연결하면 됩니다.
 
 홈의 `.screenshot-slot`은 실제 앱 스크린샷을 넣을 빈 영역입니다. `assets/`에 이미지를 추가한 뒤 해당 영역에 `<img>`를 넣으면 됩니다.
 

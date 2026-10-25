@@ -1,13 +1,13 @@
 const languageButton = document.querySelector('.language');
 const guide = document.querySelector('#guide-content');
 
-function setLanguage(language) {
+function setLanguage(language, persist = true) {
   document.documentElement.lang = language;
   document.querySelectorAll('[data-ko][data-en]').forEach((element) => {
     element.innerHTML = element.dataset[language];
   });
   if (languageButton) languageButton.textContent = language === 'ko' ? 'EN' : 'KO';
-  localStorage.setItem('torchlauncher-language', language);
+  if (persist) localStorage.setItem('torchlauncher-language', language);
   if (guide) loadGuide(language);
 }
 
@@ -43,7 +43,11 @@ async function loadGuide(language) {
 }
 
 const savedLanguage = localStorage.getItem('torchlauncher-language');
-setLanguage(savedLanguage === 'en' ? 'en' : 'ko');
+const browserLanguage = /^ko(?:-|$)/i.test(navigator.language || '') ? 'ko' : 'en';
+const initialLanguage = savedLanguage === 'ko' || savedLanguage === 'en'
+  ? savedLanguage
+  : browserLanguage;
+setLanguage(initialLanguage, false);
 languageButton?.addEventListener('click', () => {
   setLanguage(document.documentElement.lang === 'ko' ? 'en' : 'ko');
 });
